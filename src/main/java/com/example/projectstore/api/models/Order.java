@@ -19,8 +19,7 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private Set<OrderLine> orderLines;
+    @ElementCollection
+    private Set<OrderLineDTO> orderLineDTOS;
 
 }
