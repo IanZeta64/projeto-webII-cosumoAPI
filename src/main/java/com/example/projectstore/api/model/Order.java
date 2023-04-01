@@ -1,5 +1,5 @@
-package com.example.projectstore.api.responses;
-import com.example.projectstore.api.model.OrderLine;
+package com.example.projectstore.api.model;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,8 +11,15 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class OrderResponse {
+@Entity
+@Table(name = "tb_order")
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
+    private Long userId;
     @OneToMany
     private List<OrderLine> orderLineList;
 
